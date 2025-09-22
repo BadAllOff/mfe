@@ -1,7 +1,5 @@
 // Import webpack-merge to combine common config with development-specific settings
 const { merge } = require('webpack-merge');
-// Import HtmlWebpackPlugin to generate HTML files with script tags
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 // Import the common webpack configuration
 const commonConfig = require('./webpack.common');
 // Import ModuleFederationPlugin for microfrontend architecture
@@ -26,11 +24,6 @@ const devConfig = {
   },
   // Array of webpack plugins to use during development
   plugins: [
-    // HTML Webpack Plugin to generate index.html with script tags
-    new HtmlWebpackPlugin({
-      // Template file to use for generating HTML
-      template: './public/index.html',
-    }),
     // Module Federation plugin for microfrontend architecture
     new ModuleFederationPlugin({
       // Name of this microfrontend (must be unique across the application)

@@ -1,3 +1,5 @@
+// Import HtmlWebpackPlugin to generate HTML files with script tags
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 // Export the common webpack configuration that will be shared between development and production builds
 module.exports = {
     // Module configuration section - defines how different file types should be processed
@@ -24,4 +26,11 @@ module.exports = {
             }
         ],
     },
+    plugins: [
+        // HTML Webpack Plugin to generate index.html with script tags
+        new HtmlWebpackPlugin({
+            // Template file to use for generating HTML
+            template: './public/index.html',
+        }),
+    ],
 };

@@ -7,6 +7,8 @@ const packageJson = require('../package.json');
 // Import the common webpack configuration
 const commonConfig = require('./webpack.common');
 
+const domain = process.env.PRODUCTION_DOMAIN;
+
 // Production-specific webpack configuration
 const prodConfig = {
   // Set webpack mode to production for optimized builds
@@ -16,20 +18,25 @@ const prodConfig = {
     // Add content hash to filenames for cache busting when content changes
     filename: '[name].[contenthash].js',
     // Public path where assets will be served from in production
-    publicPath: '/container/latest/',
+    // publicPath: '/container/latest/',
   },
   // Array of webpack plugins to use during production build
   plugins: [
     // Module Federation plugin for microfrontend architecture
     new ModuleFederationPlugin({
       // Name of this microfrontend (must be unique across the application)
+      // although for host app it is not needed, it is needed for remote entry point
       name: 'container',
       // Filename for the remote entry point that other apps can consume
-      filename: 'remoteEntry.js',
+      // filename: 'remoteEntry.js',
       // Modules that this microfrontend exposes to other applications
-      exposes: {
-        // Expose the ContainerApp component from bootstrap file
-        './ContainerApp': './src/bootstrap',
+      // exposes: {
+      //   // Expose the ContainerApp component from bootstrap file
+      //   './ContainerApp': './src/bootstrap',
+      // },
+      remotes: {
+        // Remote entry point for the marketing microfrontend
+        marketing: `marketing@${domain}/marketing/remoteEntry.js`,
       },
       // Dependencies that should be shared between microfrontends
       shared: {
