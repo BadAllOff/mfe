@@ -18,7 +18,7 @@ const prodConfig = {
     // Add content hash to filenames for cache busting when content changes
     filename: '[name].[contenthash].js',
     // Public path where assets will be served from in production
-    // publicPath: '/container/latest/',
+    publicPath: '/container/latest/',
   },
   // Array of webpack plugins to use during production build
   plugins: [
