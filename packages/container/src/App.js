@@ -6,7 +6,6 @@ export default function App() {
         <div>
             <h1>Container</h1>
             <hr />
-            <hr />test
             <MarketingApp />
         </div>
     );
