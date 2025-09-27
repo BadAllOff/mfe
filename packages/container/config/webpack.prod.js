@@ -38,7 +38,7 @@ const prodConfig = {
       // },
       remotes: {
         // Remote entry point for the marketing microfrontend
-        marketing: `marketing@${domain}/marketing/latest/remoteEntry.js`,
+        marketing: `marketing@https://d1iisxjkpk6a1b.cloudfront.net/marketing/latest/remoteEntry.js`,
       },
       // Dependencies that should be shared between microfrontends
       shared: {
