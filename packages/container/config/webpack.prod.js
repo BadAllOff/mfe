@@ -28,7 +28,7 @@ const prodConfig = {
     new ModuleFederationPlugin({
       // Name of this microfrontend (must be unique across the application)
       // although for host app it is not needed, it is needed for remote entry point
-      name: 'container',
+      // name: 'container',
       // Filename for the remote entry point that other apps can consume
       // filename: 'remoteEntry.js',
       // Modules that this microfrontend exposes to other applications
@@ -38,7 +38,7 @@ const prodConfig = {
       // },
       remotes: {
         // Remote entry point for the marketing microfrontend
-        marketing: `marketing@${domain}marketing/latest/remoteEntry.js`,
+        marketing: `marketing@${domain}/marketing/latest/remoteEntry.js`,
       },
       // Dependencies that should be shared between microfrontends
       shared: {
