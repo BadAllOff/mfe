@@ -9,8 +9,6 @@ const commonConfig = require('./webpack.common');
 
 const domain = process.env.PRODUCTION_DOMAIN;
 
-console.log('domain--------------------------------', domain);
-
 // Production-specific webpack configuration
 const prodConfig = {
   // Set webpack mode to production for optimized builds
