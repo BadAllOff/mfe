@@ -8,6 +8,7 @@ export default function App() {
     return (
         <StylesProvider>
             <BrowserRouter>
+            test
                 <Switch>
                     <Route path="/pricing" component={Pricing} />
                     <Route path="/" component={Landing} />
