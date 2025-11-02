@@ -19,7 +19,7 @@ export default function MarketingApp() {
       });
 
 
-      if (cb &&cb.onParentNavigate) {
+      if (cb && cb.onParentNavigate) {
         history.listen(cb.onParentNavigate);
       }
     };
