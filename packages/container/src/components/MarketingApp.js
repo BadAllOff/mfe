@@ -16,8 +16,11 @@ export default function MarketingApp() {
                 }
             }
         });
-
-        history.listen(onParentNavigate);
+        if (onParentNavigate) {
+            history.listen(onParentNavigate);
+        } else {
+            console.error('onParentNavigate is not a function');
+        }
         // }
         return () => {
             if (marketingRef.current) {
