@@ -5,10 +5,11 @@ import { useHistory } from 'react-router-dom';
 export default function MarketingApp() {
     const marketingRef = useRef(null);
     const history = useHistory();
+    let onParentNav = null;
     
     useEffect(() => {
         // if (marketingRef.current) {
-        const { onParentNavigate } = mount(marketingRef.current, {
+        onParentNav = mount(marketingRef.current, {
             onNavigate: ({ pathname: nextPathname }) => {
                 const { pathname } = history.location;
 
@@ -18,8 +19,8 @@ export default function MarketingApp() {
             }
         });
         
-        if (onParentNavigate) {
-            history.listen(onParentNavigate);
+        if (onParentNav.onParentNavigate) {
+            history.listen(onParentNav.onParentNavigate);
         } else {
             console.error('onParentNavigate is not a function');
         }
@@ -29,7 +30,7 @@ export default function MarketingApp() {
                 marketingRef.current.unmount();
             }
         };
-    }, []);
+    }, [onParentNav]);
 
     return <div ref={marketingRef} />;
 }
