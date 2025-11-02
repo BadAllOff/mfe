@@ -8,15 +8,15 @@ export default function App() {
     const generateClassName = createGenerateClassName({
         productionPrefix: 'ma',
     });
-    
+
     return (
-        <StylesProvider generateClassName={generateClassName}>
-            <BrowserRouter>
+        <BrowserRouter>
+            <StylesProvider generateClassName={generateClassName}>
                 <Switch>
                     <Route path="/pricing" component={Pricing} />
                     <Route path="/" component={Landing} />
                 </Switch>
-            </BrowserRouter>
-        </StylesProvider>
+            </StylesProvider>
+        </BrowserRouter>
     );
 }
