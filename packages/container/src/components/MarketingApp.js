@@ -11,11 +11,13 @@ export default function MarketingApp() {
         const { onParentNavigate } = mount(marketingRef.current, {
             onNavigate: ({ pathname: nextPathname }) => {
                 const { pathname } = history.location;
+
                 if (pathname !== nextPathname) {
                     history.push(nextPathname);
                 }
             }
         });
+        
         if (onParentNavigate) {
             history.listen(onParentNavigate);
         } else {
