@@ -8,13 +8,13 @@ export default function App() {
     const generateClassName = createGenerateClassName({
         productionPrefix: 'co',
     });
-    
+
     return (
-        <StylesProvider generateClassName={generateClassName}>
-            <BrowserRouter>
+        <BrowserRouter>
+            <StylesProvider generateClassName={generateClassName}>
                 <Header />
                 <MarketingApp />
-            </BrowserRouter>
-        </StylesProvider>
+            </StylesProvider>
+        </BrowserRouter>
     );
 }
