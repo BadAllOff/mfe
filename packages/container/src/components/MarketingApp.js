@@ -8,7 +8,7 @@ export default function MarketingApp() {
 
   useEffect(() => {
     if (marketingRef.current) {
-      const { onParentNavigate } = mount(marketingRef.current, {
+      const cb = mount(marketingRef.current, {
         onNavigate: ({ pathname: nextPathname }) => {
           const { pathname } = history.location;
 
@@ -19,12 +19,9 @@ export default function MarketingApp() {
       });
 
 
-      // if (onParentNavigate) {
-      //     history.listen(onParentNavigate);
-      // } else {
-      //     console.error('onParentNavigate is not a function');
-      // }
-      // }
+      if (cb &&cb.onParentNavigate) {
+        history.listen(cb.onParentNavigate);
+      }
     };
 
     return () => {
