@@ -27,13 +27,6 @@ const prodConfig = {
       // Name of this microfrontend (must be unique across the application)
       // although for host app it is not needed, it is needed for remote entry point
       // name: 'container',
-      // Filename for the remote entry point that other apps can consume
-      // filename: 'remoteEntry.js',
-      // Modules that this microfrontend exposes to other applications
-      // exposes: {
-      //   // Expose the ContainerApp component from bootstrap file
-      //   './ContainerApp': './src/bootstrap',
-      // },
       remotes: {
         // Remote entry point for the marketing microfrontend
         marketing: `marketing@${domain}/marketing/latest/remoteEntry.js`,
