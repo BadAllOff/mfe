@@ -35,6 +35,8 @@ const devConfig = {
       remotes: {
         // Remote entry point for the marketing microfrontend
         marketing: 'marketing@http://localhost:8081/remoteEntry.js',
+        // Remote entry point for the auth microfrontend
+        auth: 'auth@http://localhost:8082/remoteEntry.js',
       },
       shared: {
         // Spread all dependencies from package.json as shared modules
