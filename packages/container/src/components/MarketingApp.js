@@ -10,6 +10,7 @@ export default function MarketingApp() {
   useEffect(() => {
     if (ref.current) {
       cb = mount(ref.current, {
+        initialPath: history.location.pathname,
         onNavigate: ({ pathname: nextPathname }) => {
           const { pathname } = history.location;
 

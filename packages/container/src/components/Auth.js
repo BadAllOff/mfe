@@ -10,13 +10,14 @@ export default function AuthApp() {
   useEffect(() => {
     if (ref.current) {
       cb = mount(ref.current, {
+        initialPath: history.location.pathname,
         onNavigate: ({ pathname: nextPathname }) => {
           const { pathname } = history.location;
 
           if (pathname !== nextPathname) {
             history.push(nextPathname);
           }
-        }
+        },
       });
 
 

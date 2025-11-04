@@ -8,8 +8,10 @@ import { createMemoryHistory, createBrowserHistory } from 'history';
 import App from './App';
 
 // MOunt function to start up the marketing microfrontend
-const mount = (el, { onNavigate, defaultHistory }) => {
-  const history = defaultHistory || createMemoryHistory();
+const mount = (el, { onNavigate, defaultHistory, initialPath }) => {
+  const history = defaultHistory || createMemoryHistory({
+    initialEntries: [initialPath],
+  });
 
   if (onNavigate) {
     history.listen(onNavigate);
