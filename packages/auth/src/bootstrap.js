@@ -9,7 +9,9 @@ import App from './App';
 
 // MOunt function to start up the auth microfrontend
 const mount = (el, { onNavigate, defaultHistory }) => {
-  const history = defaultHistory || createMemoryHistory();
+  const history = defaultHistory || createMemoryHistory({
+    initialEntries: ['/auth/signin'],
+  });
 
   if (onNavigate) {
     history.listen(onNavigate);
