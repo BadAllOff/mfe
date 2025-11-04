@@ -1,41 +1,37 @@
-// Import webpack-merge to combine common config with development-specific settings
+// Import webpack-merge to combine common config with production-specific settings
 const { merge } = require('webpack-merge');
-// Import the common webpack configuration
-const commonConfig = require('./webpack.common');
 // Import ModuleFederationPlugin for microfrontend architecture
 const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
 // Import package.json to access dependencies for shared modules
 const packageJson = require('../package.json');
+// Import the common webpack configuration
+const commonConfig = require('./webpack.common');
 
-// Development-specific webpack configuration
-const devConfig = {
-  // Set webpack mode to development for faster builds and better debugging
-  mode: 'development',
+// Production-specific webpack configuration
+const prodConfig = {
+  // Set webpack mode to production for optimized builds
+  mode: 'production',
+  // Output configuration for production builds
   output: {
-    publicPath: 'http://localhost:8080/',
+    // Add content hash to filenames for cache busting when content changes
+    filename: '[name].[contenthash].js',
+    // Public path where assets will be served from in production
+    publicPath: '/auth/latest/',
   },
-  // Development server configuration
-  devServer: {
-    // Port number for the development server
-    port: 8080,
-    // Enable HTML5 History API fallback for client-side routing
-    historyApiFallback: {
-      // Allow fallback to index.html for any 404 errors
-      historyApiFallback: true,
-      index: 'index.html',
-    },
-  },
-  // Array of webpack plugins to use during development
+  // Array of webpack plugins to use during production build
   plugins: [
     // Module Federation plugin for microfrontend architecture
     new ModuleFederationPlugin({
       // Name of this microfrontend (must be unique across the application)
-      name: 'container',
-
-      remotes: {
-        // Remote entry point for the marketing microfrontend
-        marketing: 'marketing@http://localhost:8081/remoteEntry.js',
+      name: 'auth',
+      // Filename for the remote entry point that other apps can consume
+      filename: 'remoteEntry.js',
+      // Modules that this microfrontend exposes to other applications
+      exposes: {
+        // Expose the AuthApp component from bootstrap file
+        './AuthApp': './src/bootstrap',
       },
+      // Dependencies that should be shared between microfrontends
       shared: {
         // Spread all dependencies from package.json as shared modules
         ...packageJson.dependencies,
@@ -65,5 +61,5 @@ const devConfig = {
   ],
 };
 
-// Export the merged configuration (common + development-specific settings)
-module.exports = merge(commonConfig, devConfig);
+// Export the merged configuration (common + production-specific settings)
+module.exports = merge(commonConfig, prodConfig);

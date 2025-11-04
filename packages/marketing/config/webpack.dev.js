@@ -13,6 +13,9 @@ const commonConfig = require('./webpack.common');
 const devConfig = {
   // Set webpack mode to development for faster builds and better debugging
   mode: 'development',
+  output: {
+    publicPath: 'http://localhost:8081/',
+  },
   // Development server configuration
   devServer: {
     // Port number for the development server
@@ -21,7 +24,7 @@ const devConfig = {
     historyApiFallback: {
       // Allow fallback to index.html for any 404 errors
       historyApiFallback: true,
-      index: 'index.html',
+      index: '/index.html',
     },
   },
   // Array of webpack plugins to use during development
