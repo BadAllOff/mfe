@@ -26,7 +26,7 @@ module.exports = {
       },
       {
         test: /\.scss|\.css$/,
-        use: ['vue-style-loader', 'css-loader', 'sass-loader', 'style-loader'],
+        use: ['vue-style-loader', 'css-loader', 'sass-loader'],
       },
       {
         // Test condition: matches files ending with .js or .mjs extensions

@@ -2,30 +2,17 @@
 // It is the entry point for the dashboard microfrontend
 // It is used to mount the dashboard microfrontend to the DOM
 
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { createMemoryHistory, createBrowserHistory } from 'history';
-import App from './App';
+import { createApp } from 'vue';
+import Dashboard from './components/Dashboard.vue';
 
 // MOunt function to start up the dashboard microfrontend
-const mount = (el, { onNavigate, defaultHistory, initialPath }) => {
-  const history = defaultHistory || createMemoryHistory({
-    initialEntries: [initialPath],
-  });
-
-  if (onNavigate) {
-    history.listen(onNavigate);
-  }
-
-  ReactDOM.render(<App history={history} />, el);
+const mount = (el) => {
+  const app = createApp(Dashboard);
+  app.mount(el);
 
   return {
-    onParentNavigate({ pathname: nextPathname }) {
-      const { pathname } = history.location;
-
-      if (pathname !== nextPathname) {
-        history.push(nextPathname);
-      }
+    unmount() {
+      app.unmount();
     },
   };
 };
@@ -33,8 +20,9 @@ const mount = (el, { onNavigate, defaultHistory, initialPath }) => {
 // If we are in development and in isolation, call mount immediately
 if (process.env.NODE_ENV === 'development') {
   const devRoot = document.querySelector('#_dashboard-dev-root');
+
   if (devRoot) {
-    mount(devRoot, { defaultHistory: createBrowserHistory() });
+    mount(devRoot);
   }
 };
 
