@@ -112,12 +112,7 @@
       <Panel header="Contact Us">
         <div class="p-grid">
           <div class="p-col-12">
-            <Dropdown
-              v-model="dropdownCity"
-              :options="dropdownCities"
-              optionLabel="name"
-              placeholder="Select a City"
-            />
+            <Dropdown v-model="dropdownCity" :options="dropdownCities" optionLabel="name" placeholder="Select a City" />
           </div>
           <div class="p-col-12">
             <InputText type="text" placeholder="Name" />
@@ -202,21 +197,13 @@
     <div class="p-col-12 p-lg-6">
       <div class="card">
         <h1 style="font-size: 16px">Recent Sales</h1>
-        <DataTable
-          :value="products"
-          class="p-datatable-customers"
-          :rows="5"
-          style="margin-bottom: 20px"
-          :paginator="true"
-        >
+        <DataTable :value="products" class="p-datatable-customers" :rows="5" style="margin-bottom: 20px"
+          :paginator="true">
           <Column>
             <template #header> Logo </template>
             <template #body="slotProps">
-              <img
-                :src="'assets/layout/images/product/' + slotProps.data.image"
-                :alt="slotProps.data.image"
-                width="50"
-              />
+              <img :src="'assets/layout/images/product/' + slotProps.data.image" :alt="slotProps.data.image"
+                width="50" />
             </template>
           </Column>
           <Column field="name" header="Name" :sortable="true"></Column>
@@ -229,16 +216,8 @@
           <Column>
             <template #header> View </template>
             <template #body>
-              <Button
-                icon="pi pi-search"
-                type="button"
-                class="p-button-success p-mr-2 p-mb-1"
-              ></Button>
-              <Button
-                icon="pi pi-times"
-                type="button"
-                class="p-button-danger p-mb-1"
-              ></Button>
+              <Button icon="pi pi-search" type="button" class="p-button-success p-mr-2 p-mb-1"></Button>
+              <Button icon="pi pi-times" type="button" class="p-button-danger p-mb-1"></Button>
             </template>
           </Column>
         </DataTable>
@@ -347,14 +326,16 @@ export default {
 @media screen and (max-width: 960px) {
   ::v-deep(.p-datatable) {
     &.p-datatable-customers {
-      .p-datatable-thead > tr > th,
-      .p-datatable-tfoot > tr > td {
+
+      .p-datatable-thead>tr>th,
+      .p-datatable-tfoot>tr>td {
         display: none !important;
       }
 
-      .p-datatable-tbody > tr {
+      .p-datatable-tbody>tr {
         border-bottom: 1px solid #dee2e6;
-        > td {
+
+        >td {
           text-align: left;
           display: flex;
           align-items: center;
@@ -381,6 +362,7 @@ export default {
     }
   }
 }
+
 $fontSize: 14px;
 $bodyBgColor: #edf0f5;
 $textColor: #333333;
@@ -476,6 +458,7 @@ h5 {
 h6 {
   font-size: 1rem;
 }
+
 @mixin icon-override($icon) {
   &:before {
     content: $icon;
@@ -483,15 +466,21 @@ h6 {
 }
 
 @mixin linear-gradient($top, $bottom) {
-  background: $top; /* Old browsers */
-  background: linear-gradient(to bottom, $top 0%, $bottom 100%); /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
+  background: $top;
+  /* Old browsers */
+  background: linear-gradient(to bottom, $top 0%, $bottom 100%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#000000', GradientType=0);
+  /* IE6-9 */
 }
 
 @mixin linear-gradient-left($left, $right) {
-  background: $left; /* Old browsers */
-  background: linear-gradient(to right, $left 0%, $right 100%); /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=$left, endColorstr=$right,GradientType=1 ); /* IE6-9 */
+  background: $left;
+  /* Old browsers */
+  background: linear-gradient(to right, $left 0%, $right 100%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=$left, endColorstr=$right, GradientType=1);
+  /* IE6-9 */
 }
 
 @mixin opacity($opacity) {
@@ -519,6 +508,7 @@ h6 {
     clear: both;
   }
 }
+
 mark {
   background: #fff8e1;
   padding: 0.25rem 0.4rem;
@@ -554,19 +544,22 @@ p {
     background: transparent;
     overflow: visible;
 
-    > code {
+    >code {
       border-left: 0 none;
       box-shadow: none !important;
       font-size: 14px;
     }
   }
 }
+
 /* Footer */
 $footerBgColor: #ffffff;
+
 .dashboard {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica,
     Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
   background-color: #edf0f5;
+
   .summary {
     position: relative;
 
@@ -614,7 +607,7 @@ $footerBgColor: #ffffff;
       text-align: center;
       padding: 1em;
 
-      > span {
+      >span {
         font-size: 48px;
       }
     }
