@@ -1,6 +1,6 @@
 # Microfrontend App
 
-Access via https://d1iisxjkpk6a1b.cloudfront.net/
+Access via https://d30l8vjkicldr6.cloudfront.net/
 This repository contains a microfrontend application structured into multiple packages. Each package represents a different part of the application, such as authentication, container, dashboard, and marketing.
 
 ## Project Structure
