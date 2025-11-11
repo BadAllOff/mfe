@@ -7,7 +7,7 @@ import ReactDOM from 'react-dom';
 import { createMemoryHistory, createBrowserHistory } from 'history';
 import App from './App';
 
-// MOunt function to start up the marketing microfrontend
+// MOunt function to start up the marketing microfrontenddsd
 const mount = (el, { onNavigate, defaultHistory, initialPath }) => {
   const history = defaultHistory || createMemoryHistory({
     initialEntries: [initialPath],
