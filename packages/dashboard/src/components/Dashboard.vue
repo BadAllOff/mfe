@@ -680,28 +680,26 @@ $footerBgColor: #ffffff;
         border-bottom: 1px solid $dividerColor;
 
         button {
-          padding: 9px;
+          padding: 12px;
           width: 100%;
           box-sizing: border-box;
           text-decoration: none;
-          position: relative;
           display: block;
           border-radius: 2px;
           transition: background-color 0.2s;
+          text-align: right;
 
           .name {
-            position: absolute;
-            right: 10px;
-            top: 10px;
+            display: block;
             font-size: 18px;
+            color: $textColor;
           }
 
           .email {
-            position: absolute;
-            right: 10px;
-            top: 30px;
+            display: block;
             font-size: 14px;
             color: $textSecondaryColor;
+            margin-top: 4px;
           }
 
           &:hover {
